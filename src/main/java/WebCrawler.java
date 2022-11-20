@@ -40,11 +40,12 @@ public class WebCrawler {
             //System.out.println(text);
             for (String w : keys) {
                 //Arrays.stream(text.split(" ")).sorted().forEach(System.out::println);
-                //long c = Arrays.stream(text.split("\\s+")).filter(ch -> ch.toLowerCase().equals(w.toLowerCase())).count();
+                // Точный поиск отдельных слов со 100% совпадением.
+                //long count = Arrays.stream(text.split("\\s+")).filter(ch -> ch.toLowerCase().equals(w.toLowerCase())).count();
                 int lastIndex = 0;
                 int count = 0;
                 do {
-                    lastIndex = text.indexOf(w, lastIndex + 1);
+                    lastIndex = text.indexOf(w.toLowerCase(Locale.ROOT), lastIndex + 1);
                     if (lastIndex != -1) {
                         count++;
                     }
